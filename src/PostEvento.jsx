@@ -1,7 +1,6 @@
 import { useState } from "react";
 
-const  PostEvento = () => {
-  // Estados para armazenar os valores dos inputs
+const PostEvento = ({ onEventCreated }) => {
   const [eventName, setEventName] = useState("");
   const [eventDescription, setEventDescription] = useState("");
   const [eventLocation, setEventLocation] = useState("");
@@ -17,13 +16,13 @@ const  PostEvento = () => {
     const evento = {
       nome: eventName,
       descricao: eventDescription,
-      identificador: `ID-${Date.now()}`, // Gera um identificador único
+      identificador: `ID-${Date.now()}`,
       dataInicio: eventStart,
       dataFim: eventEnd,
       localEvento: eventLocation,
-      capacidade: parseInt(eventCapacity), // Converte string para número
+      capacidade: parseInt(eventCapacity),
       imgUrl: eventImage,
-      tipo: eventType.toUpperCase(), // Certifica que está no formato correto
+      tipo: eventType.toUpperCase(),
     };
 
     try {
@@ -41,6 +40,9 @@ const  PostEvento = () => {
 
       console.log("Evento criado com sucesso!");
       alert("Evento cadastrado com sucesso!");
+
+      // Chama a função para atualizar a lista de eventos
+      onEventCreated();
 
       // Limpa os inputs após o envio bem-sucedido
       setEventName("");
