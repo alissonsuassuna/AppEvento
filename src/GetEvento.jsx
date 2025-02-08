@@ -1,8 +1,11 @@
+//import './GetEvento.css'
+
 const GetEvento = ({ eventos }) => {
   return (
     <div>
+ 
       <h2>Lista de Eventos</h2>
-      <ul>
+      <ul className='events-list'>
         {eventos.map((evento, index) => (
           <li key={evento.identificador || index}> {/* Se identificador não for único, usa o índice */}
             <h3>{evento.nome}</h3>

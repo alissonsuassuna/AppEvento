@@ -1,0 +1,25 @@
+.events-list {
+    flex: 1;
+    background-color: #fff;
+    padding: 3rem;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    
+  }
+  
+  .event {
+    display: flex;
+    margin-bottom: 4rem;
+    gap: 1rem;
+  }
+  
+  .event img {
+    width: 160px;
+    height: 120px;
+    object-fit: cover;
+    border-radius: 8px;
+  }
+  
+  .event h4 {
+    margin-bottom: 0.5rem;
+  }

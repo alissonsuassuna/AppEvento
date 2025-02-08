@@ -1,4 +1,5 @@
 import { useState } from "react";
+//import './PostEvento.css'
 
 const PostEvento = ({ onEventCreated }) => {
   const [eventName, setEventName] = useState("");
@@ -26,7 +27,7 @@ const PostEvento = ({ onEventCreated }) => {
     };
 
     try {
-      const response = await fetch("http://localhost:8080/api/v1/criarevento", {
+      const response = await fetch("http://localhost:8080/api/v1/eventos/criarevento", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -60,62 +61,91 @@ const PostEvento = ({ onEventCreated }) => {
   };
 
   return (
-    <div>
-      <h1>Cadastro de Evento</h1>
-      <form onSubmit={handleSubmit}>
-        <input
-          type="text"
-          placeholder="Nome do Evento"
-          value={eventName}
-          onChange={(e) => setEventName(e.target.value)}
-          required
-        />
-        <input
-          type="text"
-          placeholder="Descrição"
-          value={eventDescription}
-          onChange={(e) => setEventDescription(e.target.value)}
-          required
-        />
-        <input
-          type="text"
-          placeholder="Local do Evento"
-          value={eventLocation}
-          onChange={(e) => setEventLocation(e.target.value)}
-          required
-        />
-        <input
-          type="number"
-          placeholder="Capacidade"
-          value={eventCapacity}
-          onChange={(e) => setEventCapacity(e.target.value)}
-          required
-        />
-        <input
-          type="datetime-local"
-          placeholder="Data de Início"
-          value={eventStart}
-          onChange={(e) => setEventStart(e.target.value)}
-          required
-        />
-        <input
-          type="datetime-local"
-          placeholder="Data de Fim"
-          value={eventEnd}
-          onChange={(e) => setEventEnd(e.target.value)}
-          required
-        />
-        <input
-          type="text"
-          placeholder="Imagem URL"
-          value={eventImage}
-          onChange={(e) => setEventImage(e.target.value)}
-        />
-        <select value={eventType} onChange={(e) => setEventType(e.target.value)}>
-          <option value="WORKSHOP">Workshop</option>
-          <option value="SEMINARIO">Seminário</option>
-          <option value="CONFERENCIA">Conferência</option>
-        </select>
+    <div className="form-section">
+      <form onSubmit={handleSubmit} className="form-post">
+        <div className="input-group">
+          <input
+            type="text"
+            placeholder="Nome do Evento"
+            value={eventName}
+            onChange={(e) => setEventName(e.target.value)}
+            required
+          />
+        </div>
+
+        <div className="input-group">
+          <input
+            type="text"
+            placeholder="Descrição"
+            value={eventDescription}
+            onChange={(e) => setEventDescription(e.target.value)}
+            required
+          />
+
+        </div>
+
+        <div className="input-group">
+          <input
+            type="text"
+            placeholder="Local do Evento"
+            value={eventLocation}
+            onChange={(e) => setEventLocation(e.target.value)}
+            required
+          />
+
+        </div>
+
+        <div className="input-group">
+          <input
+            type="number"
+            placeholder="Capacidade"
+            value={eventCapacity}
+            onChange={(e) => setEventCapacity(e.target.value)}
+            required
+          />
+
+        </div>
+
+        <div className="input-group">
+          <input
+            type="datetime-local"
+            placeholder="Data de Início"
+            value={eventStart}
+            onChange={(e) => setEventStart(e.target.value)}
+            required
+          />
+
+        </div>
+
+        <div className="input-group">
+          <input
+            type="datetime-local"
+            placeholder="Data de Fim"
+            value={eventEnd}
+            onChange={(e) => setEventEnd(e.target.value)}
+            required
+          />
+
+        </div>
+
+        <div className="input-group">
+          <input
+            type="text"
+            placeholder="Imagem URL"
+            value={eventImage}
+            onChange={(e) => setEventImage(e.target.value)}
+          />
+
+        </div>
+
+        <div className="input-group">
+          <select value={eventType} onChange={(e) => setEventType(e.target.value)}>
+            <option value="WORKSHOP">Workshop</option>
+            <option value="SEMINARIO">Seminário</option>
+            <option value="CONFERENCIA">Conferência</option>
+          </select>
+
+        </div>
         <button type="submit">Cadastrar Evento</button>
       </form>
     </div>
